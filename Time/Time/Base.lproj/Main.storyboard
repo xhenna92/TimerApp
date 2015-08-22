@@ -46,9 +46,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpY-dj-kSP">
                                 <rect key="frame" x="300" y="173" width="300" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-yR-Pma">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-yR-Pma">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="40"/>
                                         <state key="normal" title="Lap">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,12 +79,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-ec-nbt">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="40"/>
                                         <state key="normal" title="Start">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startButtonTapped:" destination="CeS-7F-7wO" eventType="touchUpInside" id="1SC-gH-Xqm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -130,6 +133,7 @@
                         <outlet property="lapButton" destination="A7V-yR-Pma" id="IYV-Nq-XcL"/>
                         <outlet property="startButton" destination="Qa8-ec-nbt" id="IeC-8T-skk"/>
                         <outlet property="stopWatchTableView" destination="zNb-9e-Vmo" id="7z2-rp-9PW"/>
+                        <outlet property="stopwatchLabel" destination="K9N-oZ-abr" id="f8p-cQ-Khr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDu-Hv-jlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
