@@ -1,18 +1,18 @@
 //
-//  TimerViewController.m
+//  TimerNavigationViewController.m
 //  Time
 //
-//  Created by Henna on 8/22/15.
+//  Created by Kaisha Jones on 8/22/15.
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "TimerViewController.h"
+#import "TimerNavigationViewController.h"
 
-@interface TimerViewController ()
+@interface TimerNavigationViewController ()
 
 @end
 
-@implementation TimerViewController
+@implementation TimerNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

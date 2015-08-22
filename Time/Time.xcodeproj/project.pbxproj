@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		385FE2D71B88CEC200212AD5 /* TimeTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */; };
 		385FE2DA1B88D05800212AD5 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D91B88D05800212AD5 /* StopwatchViewController.m */; };
-		385FE2DD1B88D06900212AD5 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2DC1B88D06900212AD5 /* TimerViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
 		8D0537671B86687C00588318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537651B86687C00588318 /* Main.storyboard */; };
 		8D0537691B86687C00588318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537681B86687C00588318 /* Images.xcassets */; };
 		8D05376C1B86687C00588318 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D05376A1B86687C00588318 /* LaunchScreen.xib */; };
 		8D0537781B86687C00588318 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537771B86687C00588318 /* TimeTests.m */; };
+		A4122E541B8926EE006339F8 /* TimerNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +33,6 @@
 		385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTabBarViewController.m; sourceTree = "<group>"; };
 		385FE2D81B88D05800212AD5 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		385FE2D91B88D05800212AD5 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
-		385FE2DB1B88D06900212AD5 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
-		385FE2DC1B88D06900212AD5 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D05375C1B86687B00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D05375D1B86687C00588318 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,6 +44,8 @@
 		8D0537711B86687C00588318 /* TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0537761B86687C00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0537771B86687C00588318 /* TimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
+		A4122E521B8926EE006339F8 /* TimerNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerNavigationViewController.h; sourceTree = "<group>"; };
+		A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerNavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +91,10 @@
 				8D0537601B86687C00588318 /* AppDelegate.m */,
 				385FE2D81B88D05800212AD5 /* StopwatchViewController.h */,
 				385FE2D91B88D05800212AD5 /* StopwatchViewController.m */,
-				385FE2DB1B88D06900212AD5 /* TimerViewController.h */,
-				385FE2DC1B88D06900212AD5 /* TimerViewController.m */,
 				385FE2D51B88CEC200212AD5 /* TimeTabBarViewController.h */,
 				385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */,
+				A4122E521B8926EE006339F8 /* TimerNavigationViewController.h */,
+				A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
 				8D0537681B86687C00588318 /* Images.xcassets */,
 				8D05376A1B86687C00588318 /* LaunchScreen.xib */,
@@ -231,8 +231,8 @@
 			files = (
 				385FE2DA1B88D05800212AD5 /* StopwatchViewController.m in Sources */,
 				385FE2D71B88CEC200212AD5 /* TimeTabBarViewController.m in Sources */,
-				385FE2DD1B88D06900212AD5 /* TimerViewController.m in Sources */,
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
+				A4122E541B8926EE006339F8 /* TimerNavigationViewController.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
