@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface StopwatchViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
 @property (weak, nonatomic) IBOutlet UITableView *stopWatchTableView;
@@ -21,7 +22,10 @@
 
 @property int millisecondsElapsed;
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lapLabel;
 @property (strong, nonatomic) NSTimer *stopWatchTimer;
+@property (strong, nonatomic) NSTimer *lapTimer;
+@property int lapMilliElapsed;
 
 
 
@@ -34,8 +38,6 @@
     self.initialStart = YES;
     self.isLapThere = YES;
     self.data = [[NSMutableArray alloc]init];
-    [self.data addObject:@"90"];
-    [self.data addObject:@"40"];
     
     [self.startButton setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
     self.lapButton.alpha = 0.5;
@@ -58,11 +60,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//for lap and reset button
 - (IBAction)captureLapTime:(UIButton *)sender {
     if(self.isLapThere){
         
-        [self.data addObject:self.stopwatchLabel.text];
+        [self.data addObject:self.lapLabel.text];
         [self.stopWatchTableView reloadData];
+        self.lapMilliElapsed = 0;
     }
     else{
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
@@ -78,8 +83,12 @@
         
         
         [self.stopWatchTimer invalidate];
+        [self.lapTimer invalidate];
         self.stopWatchTimer = nil;
+        self.lapTimer = nil;
         self.millisecondsElapsed = 0;
+        self.lapMilliElapsed = 0;
+        self.lapLabel.text = [NSString stringWithFormat:@"00:00:%02d", self.lapMilliElapsed];
         self.stopwatchLabel.text = [NSString stringWithFormat:@"00:00:%02d", self.millisecondsElapsed];
     }
 }
@@ -97,11 +106,26 @@
     
     int millisec = remainder_s;
     
-    
-    
     self.stopwatchLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", minutes, seconds, millisec];
 }
 
+- (void)updateLapTimer
+{
+    self.lapMilliElapsed += 1;
+    
+    int minutes = self.lapMilliElapsed / 6000;
+    int remainder_m = self.lapMilliElapsed % 6000; //remaining milliseconds
+    
+    
+    int seconds =   remainder_m/100 ; // seconds
+    int remainder_s = remainder_m % 100; //remaining seconds
+    
+    int millisec = remainder_s;
+    
+    self.lapLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", minutes, seconds, millisec];
+}
+
+//for start and stop button
 - (IBAction)startButtonTapped:(UIButton *)sender {
     if(self.initialStart){
         self.initialStart = NO;
@@ -118,6 +142,11 @@
                                                              selector:@selector(updateTimer)
                                                              userInfo:nil
                                                               repeats:YES];
+        self.lapTimer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                                         target:self
+                                                       selector:@selector(updateLapTimer)
+                                                       userInfo:nil
+                                                        repeats:YES];
     }
     else if(!self.start){
         self.start = YES;
@@ -128,6 +157,7 @@
         self.isLapThere = NO;
         
         [self.stopWatchTimer invalidate];
+        [self.lapTimer invalidate];
         
     }
     else{
@@ -141,6 +171,11 @@
         self.stopWatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                                                target:self
                                                              selector:@selector(updateTimer)
+                                                             userInfo:nil
+                                                              repeats:YES];
+        self.lapTimer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                                               target:self
+                                                             selector:@selector(updateLapTimer)
                                                              userInfo:nil
                                                               repeats:YES];
     }
@@ -161,7 +196,12 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
+    
+    
+    NSInteger index = indexPath.row+1;
+    NSString * cellText = [NSString stringWithFormat: @"Lap %ld \t \t", (long)index];
+    
+    cell.textLabel.text = [cellText stringByAppendingString:[self.data objectAtIndex:indexPath.row]];
     
     return cell;
 }
