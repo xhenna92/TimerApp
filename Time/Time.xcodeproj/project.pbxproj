@@ -17,6 +17,7 @@
 		8D05376C1B86687C00588318 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D05376A1B86687C00588318 /* LaunchScreen.xib */; };
 		8D0537781B86687C00588318 /* TimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537771B86687C00588318 /* TimeTests.m */; };
 		A4122E541B8926EE006339F8 /* TimerNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */; };
+		A4F876ED1B8A4E8B00824C4A /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F876EC1B8A4E8B00824C4A /* CountdownViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		8D0537771B86687C00588318 /* TimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTests.m; sourceTree = "<group>"; };
 		A4122E521B8926EE006339F8 /* TimerNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerNavigationViewController.h; sourceTree = "<group>"; };
 		A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerNavigationViewController.m; sourceTree = "<group>"; };
+		A4F876EB1B8A4E8B00824C4A /* CountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownViewController.h; sourceTree = "<group>"; };
+		A4F876EC1B8A4E8B00824C4A /* CountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */,
 				A4122E521B8926EE006339F8 /* TimerNavigationViewController.h */,
 				A4122E531B8926EE006339F8 /* TimerNavigationViewController.m */,
+				A4F876EB1B8A4E8B00824C4A /* CountdownViewController.h */,
+				A4F876EC1B8A4E8B00824C4A /* CountdownViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
 				8D0537681B86687C00588318 /* Images.xcassets */,
 				8D05376A1B86687C00588318 /* LaunchScreen.xib */,
@@ -239,6 +244,7 @@
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
 				385FE2E31B8A266800212AD5 /* TimerTableViewController.m in Sources */,
 				A4122E541B8926EE006339F8 /* TimerNavigationViewController.m in Sources */,
+				A4F876ED1B8A4E8B00824C4A /* CountdownViewController.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

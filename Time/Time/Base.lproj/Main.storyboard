@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -59,6 +59,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zNb-9e-Vmo">
+                                <rect key="frame" x="16" y="278" width="568" height="322"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-yR-Pma">
                                 <rect key="frame" x="434" y="170" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,10 +92,6 @@
                                     <action selector="startButtonTapped:" destination="CeS-7F-7wO" eventType="touchUpInside" id="1SC-gH-Xqm"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zNb-9e-Vmo">
-                                <rect key="frame" x="16" y="278" width="568" height="322"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="1736" y="682"/>
         </scene>
-        <!--View Controller-->
+        <!--Countdown View Controller-->
         <scene sceneID="cJu-1R-W4B">
             <objects>
-                <viewController id="M9D-gO-E3F" sceneMemberID="viewController">
+                <viewController id="M9D-gO-E3F" customClass="CountdownViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ldz-Oi-q56"/>
                         <viewControllerLayoutGuide type="bottom" id="XWE-a6-owc"/>
@@ -169,12 +169,103 @@
                     <view key="view" contentMode="scaleToFill" id="ygG-it-cy8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zO-eg-77Y">
+                                <rect key="frame" x="212" y="114" width="176" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="I1a-H9-kdt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="70"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="I1a-H9-kdt"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM3-l8-G9X">
+                                <rect key="frame" x="434" y="335" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="duq-Vb-42D"/>
+                                    <constraint firstAttribute="height" constant="100" id="nNz-dh-sAW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="captureLapTime:" destination="CeS-7F-7wO" eventType="touchUpInside" id="hYg-3R-nO6"/>
+                                    <action selector="pausedTapped:" destination="M9D-gO-E3F" eventType="touchUpInside" id="djH-zm-Ru8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tec-Bm-b2M">
+                                <rect key="frame" x="66" y="335" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0UQ-jb-dzz"/>
+                                    <constraint firstAttribute="width" constant="100" id="w22-u4-Bhj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.1647058824" green="0.53333333329999999" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CountdownStartButtonTapped:" destination="M9D-gO-E3F" eventType="touchUpInside" id="LP0-w5-n0L"/>
+                                    <action selector="startButtonTapped:" destination="CeS-7F-7wO" eventType="touchUpInside" id="YcJ-Gs-XBh"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpx-od-4sx">
+                                <rect key="frame" x="0.0" y="64" width="600" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Tkj-AZ-1yM"/>
+                                    <constraint firstAttribute="height" constant="180" id="kTR-rs-cFM"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="462047149.06804103">
+                                    <!--2015-08-23 18:25:49 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="adjustTimeView:" destination="M9D-gO-E3F" eventType="valueChanged" id="tKa-B0-W8L"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5zO-eg-77Y" secondAttribute="trailing" constant="196" id="5h4-m7-oZx"/>
+                            <constraint firstItem="gpx-od-4sx" firstAttribute="leading" secondItem="ygG-it-cy8" secondAttribute="leadingMargin" constant="-16" id="6UI-pY-hWZ"/>
+                            <constraint firstAttribute="centerY" secondItem="5zO-eg-77Y" secondAttribute="centerY" constant="146.5" id="6o7-Yp-8Xj"/>
+                            <constraint firstItem="tec-Bm-b2M" firstAttribute="baseline" secondItem="WM3-l8-G9X" secondAttribute="baseline" id="UXG-oc-JVU"/>
+                            <constraint firstItem="tec-Bm-b2M" firstAttribute="top" secondItem="gpx-od-4sx" secondAttribute="bottom" constant="91" id="Zj3-Te-dr3"/>
+                            <constraint firstItem="5zO-eg-77Y" firstAttribute="top" secondItem="ldz-Oi-q56" secondAttribute="bottom" constant="50" id="c0a-Ga-xqQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gpx-od-4sx" secondAttribute="trailing" constant="-16" id="c9g-ad-cyn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WM3-l8-G9X" secondAttribute="trailing" constant="50" id="eel-UI-oI5"/>
+                            <constraint firstItem="5zO-eg-77Y" firstAttribute="top" secondItem="ldz-Oi-q56" secondAttribute="bottom" constant="90" id="imV-KN-cJg"/>
+                            <constraint firstItem="tec-Bm-b2M" firstAttribute="leading" secondItem="ygG-it-cy8" secondAttribute="leadingMargin" constant="50" id="u64-Ou-3P7"/>
+                            <constraint firstAttribute="centerX" secondItem="5zO-eg-77Y" secondAttribute="centerX" id="vPb-N7-6nj"/>
+                            <constraint firstItem="5zO-eg-77Y" firstAttribute="leading" secondItem="ygG-it-cy8" secondAttribute="leadingMargin" constant="196" id="ydr-cb-SPw"/>
+                            <constraint firstItem="gpx-od-4sx" firstAttribute="top" secondItem="ldz-Oi-q56" secondAttribute="bottom" id="zjw-np-bmN"/>
+                            <constraint firstAttribute="centerX" secondItem="5zO-eg-77Y" secondAttribute="centerX" id="zuP-vx-6Px"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5h4-m7-oZx"/>
+                                <exclude reference="6o7-Yp-8Xj"/>
+                                <exclude reference="imV-KN-cJg"/>
+                                <exclude reference="vPb-N7-6nj"/>
+                                <exclude reference="ydr-cb-SPw"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="CountdownPauseButton" destination="WM3-l8-G9X" id="xoD-hj-pW7"/>
+                        <outlet property="CountdownPickerView" destination="gpx-od-4sx" id="cL8-mn-D6O"/>
+                        <outlet property="CountdownStartButton" destination="tec-Bm-b2M" id="5Fj-Sr-ie3"/>
+                        <outlet property="CountdownTimerLabel" destination="5zO-eg-77Y" id="tHJ-6p-JnX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-74-21h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="682"/>
+            <point key="canvasLocation" x="2478" y="682"/>
         </scene>
         <!--Timer-->
         <scene sceneID="BXT-p7-z0h">
