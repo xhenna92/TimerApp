@@ -7,11 +7,12 @@
 //
 
 #import "TimerTableViewController.h"
+#import "CountdownViewController.h"
+#import "CountdownObject.h"
 
 @interface TimerTableViewController ()
 
-@property (nonatomic) NSMutableArray *customTimers;
-@property (nonatomic) NSMutableArray *presetTimers;
+@property (nonatomic) NSMutableArray *countdowns;
 
 
 @end
@@ -21,10 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.customTimers = [[NSMutableArray alloc]init];
-    self.presetTimers = [[NSMutableArray alloc]init];
-    [self.customTimers addObject:@"+ Add a Custom Timer"];
-    [self.presetTimers addObject:@"23"];
+    self.countdowns = [[NSMutableArray alloc]init];
+    CountdownObject * CDobject = [[CountdownObject alloc]init];
+    [CDobject initializeWith:@"+ Add a Custom Timer" and:120];
+    
+    [self.countdowns addObject:CDobject];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,34 +41,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+    CountdownObject * selected = [self.countdowns objectAtIndex:indexPath.row];
+    CountdownViewController * destination = segue.destinationViewController;
+    destination.countdownInfo = selected;
+}
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    if(section == 0){
-        return self.customTimers.count;
-    }
-    else{
-        return self.presetTimers.count;
-    }
-    
+    return self.countdowns.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimerIndexCellIdentifier" forIndexPath:indexPath];
     
-    if(indexPath.section == 0 ){
-        cell.textLabel.text = [self.customTimers objectAtIndex:indexPath.row];
-    }
-    else {
-        cell.textLabel.text = [self.presetTimers objectAtIndex:indexPath.row];
-    }
+    CountdownObject *object = [self.countdowns objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = object.name;
     
     return cell;
 }

@@ -10,6 +10,7 @@
 		385FE2D71B88CEC200212AD5 /* TimeTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */; };
 		385FE2DA1B88D05800212AD5 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D91B88D05800212AD5 /* StopwatchViewController.m */; };
 		385FE2E31B8A266800212AD5 /* TimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2E21B8A266800212AD5 /* TimerTableViewController.m */; };
+		38CB90BE1B8D500D002B5947 /* CountdownObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CB90BD1B8D500D002B5947 /* CountdownObject.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
 		8D0537671B86687C00588318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537651B86687C00588318 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 		385FE2D91B88D05800212AD5 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 		385FE2E11B8A266800212AD5 /* TimerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerTableViewController.h; sourceTree = "<group>"; };
 		385FE2E21B8A266800212AD5 /* TimerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerTableViewController.m; sourceTree = "<group>"; };
+		38CB90BC1B8D500C002B5947 /* CountdownObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownObject.h; sourceTree = "<group>"; };
+		38CB90BD1B8D500D002B5947 /* CountdownObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownObject.m; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D05375C1B86687B00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D05375D1B86687C00588318 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 			children = (
 				8D05375F1B86687C00588318 /* AppDelegate.h */,
 				8D0537601B86687C00588318 /* AppDelegate.m */,
+				38CB90BC1B8D500C002B5947 /* CountdownObject.h */,
+				38CB90BD1B8D500D002B5947 /* CountdownObject.m */,
 				385FE2E11B8A266800212AD5 /* TimerTableViewController.h */,
 				385FE2E21B8A266800212AD5 /* TimerTableViewController.m */,
 				385FE2D81B88D05800212AD5 /* StopwatchViewController.h */,
@@ -243,6 +248,7 @@
 				385FE2D71B88CEC200212AD5 /* TimeTabBarViewController.m in Sources */,
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
 				385FE2E31B8A266800212AD5 /* TimerTableViewController.m in Sources */,
+				38CB90BE1B8D500D002B5947 /* CountdownObject.m in Sources */,
 				A4122E541B8926EE006339F8 /* TimerNavigationViewController.m in Sources */,
 				A4F876ED1B8A4E8B00824C4A /* CountdownViewController.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
