@@ -101,7 +101,11 @@
         
         
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-//        self.timer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+        
+        afterRemainder++;
+        [self updateCountDown];
+        
+//        self.timer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(timerFired:)  lsuserInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop]addTimer:self.timer forMode:NSDefaultRunLoopMode];
         [self.CountdownPickerView setHidden:YES];
         [self.CountdownTimerLabel setHidden:NO];
