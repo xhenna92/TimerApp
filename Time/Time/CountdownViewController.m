@@ -44,6 +44,8 @@
     
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Countdown Timer";
+    
     self.CountdownPickerView.datePickerMode = UIDatePickerModeCountDownTimer;
 
     self.isStart = YES;

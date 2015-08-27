@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Timer";
+    
     self.countdowns = [[NSMutableArray alloc]init];
     CountdownObject * CDobject = [[CountdownObject alloc]init];
     [CDobject initializeWith:@"+ Add a Custom Timer" and:120];

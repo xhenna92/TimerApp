@@ -35,6 +35,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.navigationItem.title = @"Stopwatch";
+    
     self.initialStart = YES;
     self.isLapThere = YES;
     self.data = [[NSMutableArray alloc]init];
