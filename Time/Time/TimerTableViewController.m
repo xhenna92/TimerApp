@@ -9,12 +9,11 @@
 #import "TimerTableViewController.h"
 #import "CountdownViewController.h"
 #import "CountdownObject.h"
+#import "PresetTimerSelectViewController.h"
+#import "TimerModel.h"
 
 @interface TimerTableViewController ()
-
-@property (nonatomic) NSMutableArray *countdowns;
-
-
+    @property (nonatomic) TimerModel * data;
 @end
 
 @implementation TimerTableViewController
@@ -23,12 +22,12 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"Timer";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presetTimerPicker)];
+    //[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)] autorelease];
     
-    self.countdowns = [[NSMutableArray alloc]init];
-    CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"+ Add a Custom Timer" and:120];
-    
-    [self.countdowns addObject:CDobject];
+    self.data = [TimerModel sharedInstance];
+    [self.data initializeModel];
+
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -38,16 +37,39 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
+-(void) presetTimerPicker{
+    // create a reference to Main.storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    // create a new instance of UIViewController from our storyboard
+    PresetTimerSelectViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"presetTimerPicker"];
+    
+    
+    // set any properties on viewController
+    //viewController.planet = [self.planets objectAtIndex:0];
+    
+    // tell the UINavigationController to push the new view controller on to the stack
+    [self.navigationController presentModalViewController:viewController animated:YES];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.destinationViewController isKindOfClass:[CountdownViewController class]]){
     NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
-    CountdownObject * selected = [self.countdowns objectAtIndex:indexPath.row];
+    
+    CountdownObject * selected = [self.data.countdowns objectAtIndex:indexPath.row];
     CountdownViewController * destination = segue.destinationViewController;
     destination.countdownInfo = selected;
+    }
 }
 
 
@@ -59,14 +81,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.countdowns.count;
+    return self.data.countdowns.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimerIndexCellIdentifier" forIndexPath:indexPath];
     
-    CountdownObject *object = [self.countdowns objectAtIndex:indexPath.row];
+    CountdownObject *object = [self.data.countdowns objectAtIndex:indexPath.row];
     
     cell.textLabel.text = object.name;
     

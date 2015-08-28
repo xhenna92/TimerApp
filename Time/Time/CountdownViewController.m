@@ -15,7 +15,9 @@
     NSTimeInterval countDownInterval;
     
 }
-
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (nonatomic) NSArray *colorArray;
+@property (nonatomic) NSInteger currIndexColor;
 @property (weak, nonatomic) IBOutlet UIDatePicker *CountdownPickerView;
 @property (weak, nonatomic) IBOutlet UILabel *CountdownTimerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *CountdownStartButton;
@@ -43,7 +45,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.currIndexColor = 0;
+    self.colorArray = [[NSArray alloc] initWithObjects:[UIColor redColor],[UIColor blueColor],[UIColor greenColor],nil];
     self.navigationItem.title = @"Countdown Timer";
     
     self.CountdownPickerView.datePickerMode = UIDatePickerModeCountDownTimer;
@@ -58,12 +61,36 @@
 - (void) updateCountDown {
     afterRemainder --;
     
+
+    
     int hours = (int)(afterRemainder/(60*60));
     int mins = (int)(((int)afterRemainder/60) - (hours * 60));
     int secs = (int)(((int)afterRemainder - (60 *mins) - (60 * hours * 60)));
+
+    
+    [self changeBGColor];
     NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
     
     self.CountdownTimerLabel.text = timeDisplay;
+}
+
+-(void) changeBGColor{
+    
+    NSInteger rndValue = 0 + arc4random() % (2 - 0);
+    if (self.currIndexColor == rndValue) {
+        if (rndValue==0) {
+            rndValue ++;
+        }
+        else if(rndValue ==2){
+            rndValue--;
+        }
+        else{
+            rndValue++;
+        }
+    }
+    self.currIndexColor = rndValue;
+    UIColor *color = [self.colorArray objectAtIndex:rndValue];
+    self.backgroundView.backgroundColor = color;
 }
 
 

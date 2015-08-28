@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Stopwatch-->
@@ -128,6 +129,98 @@
             </objects>
             <point key="canvasLocation" x="910" y="-14"/>
         </scene>
+        <!--Preset Timer Select View Controller-->
+        <scene sceneID="cmA-21-IGT">
+            <objects>
+                <viewController storyboardIdentifier="presetTimerPicker" id="rWC-by-wMq" customClass="PresetTimerSelectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BXw-M4-CkY"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Qa-Dl-Id3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MKm-jm-WE6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uer-mg-Vrj">
+                                <rect key="frame" x="0.0" y="28" width="600" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RO-vH-oPN">
+                                        <rect key="frame" x="10" y="135" width="37" height="30"/>
+                                        <state key="normal" title="Pizza">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pizzaTouched:" destination="rWC-by-wMq" eventType="touchUpInside" id="bKO-uI-FiT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-za-xPX">
+                                        <rect key="frame" x="554" y="135" width="36" height="30"/>
+                                        <state key="normal" title="Party">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="partyTouched:" destination="rWC-by-wMq" eventType="touchUpInside" id="A8z-oI-ame"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="5RO-vH-oPN" secondAttribute="centerY" id="3pp-ml-EhW"/>
+                                    <constraint firstAttribute="centerY" secondItem="bcb-za-xPX" secondAttribute="centerY" id="ODX-L9-9PG"/>
+                                    <constraint firstItem="5RO-vH-oPN" firstAttribute="leading" secondItem="uer-mg-Vrj" secondAttribute="leading" constant="10" id="alB-yn-BKG"/>
+                                    <constraint firstAttribute="trailing" secondItem="bcb-za-xPX" secondAttribute="trailing" constant="10" id="pKW-d0-DXc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-my-1ow">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klO-HB-ap6">
+                                        <rect key="frame" x="10" y="135" width="79" height="30"/>
+                                        <state key="normal" title="Not A Party">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Countdown3:" destination="rWC-by-wMq" eventType="touchUpInside" id="GAc-zw-cIC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-AN-auC">
+                                        <rect key="frame" x="560" y="135" width="30" height="30"/>
+                                        <state key="normal" title="Cat">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Countdown4:" destination="rWC-by-wMq" eventType="touchUpInside" id="pPr-Wu-GRn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Wz6-AN-auC" secondAttribute="centerY" id="3Kp-gs-kaI"/>
+                                    <constraint firstItem="klO-HB-ap6" firstAttribute="leading" secondItem="pXi-my-1ow" secondAttribute="leading" constant="10" id="OyJ-4P-RPc"/>
+                                    <constraint firstAttribute="centerY" secondItem="klO-HB-ap6" secondAttribute="centerY" id="SMy-c2-qjl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wz6-AN-auC" secondAttribute="trailing" constant="10" id="imr-Iq-lgw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="width" secondItem="MKm-jm-WE6" secondAttribute="width" id="0eI-Nk-yyG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pXi-my-1ow" secondAttribute="trailing" constant="-16" id="4r8-fA-3Li"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uer-mg-Vrj" secondAttribute="trailing" constant="-16" id="8Hf-uA-9Bw"/>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="width" secondItem="pXi-my-1ow" secondAttribute="width" id="L4i-Wr-RYw"/>
+                            <constraint firstItem="pXi-my-1ow" firstAttribute="leading" secondItem="MKm-jm-WE6" secondAttribute="leadingMargin" constant="-16" id="NMa-PB-H1K"/>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="leading" secondItem="MKm-jm-WE6" secondAttribute="leadingMargin" constant="-16" id="U5X-k4-n6i"/>
+                            <constraint firstItem="4Qa-Dl-Id3" firstAttribute="top" secondItem="pXi-my-1ow" secondAttribute="bottom" id="gxu-oD-h7h"/>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="height" secondItem="pXi-my-1ow" secondAttribute="height" id="kga-hQ-m8Y"/>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="height" secondItem="MKm-jm-WE6" secondAttribute="height" multiplier="0.5" id="u8e-FV-75b"/>
+                            <constraint firstItem="uer-mg-Vrj" firstAttribute="top" secondItem="BXw-M4-CkY" secondAttribute="bottom" constant="8" id="vAC-4H-tNh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tF2-Bo-Avr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="-48"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="oTt-S3-Mrr">
             <objects>
@@ -202,6 +295,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tec-Bm-b2M">
                                 <rect key="frame" x="66" y="335" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="0UQ-jb-dzz"/>
                                     <constraint firstAttribute="width" constant="100" id="w22-u4-Bhj"/>
@@ -226,7 +320,7 @@
                                 </date>
                             </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="5zO-eg-77Y" secondAttribute="trailing" constant="196" id="5h4-m7-oZx"/>
                             <constraint firstItem="gpx-od-4sx" firstAttribute="leading" secondItem="ygG-it-cy8" secondAttribute="leadingMargin" constant="-16" id="6UI-pY-hWZ"/>
@@ -258,6 +352,7 @@
                         <outlet property="CountdownPickerView" destination="gpx-od-4sx" id="cL8-mn-D6O"/>
                         <outlet property="CountdownStartButton" destination="tec-Bm-b2M" id="5Fj-Sr-ie3"/>
                         <outlet property="CountdownTimerLabel" destination="5zO-eg-77Y" id="tHJ-6p-JnX"/>
+                        <outlet property="backgroundView" destination="ygG-it-cy8" id="DcU-hY-oUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-74-21h" userLabel="First Responder" sceneMemberID="firstResponder"/>

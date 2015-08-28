@@ -13,7 +13,15 @@
 -(void) initializeWith: (NSString*)aName and: (int) aNumber{
     self.name = aName;
     self.numberOfSeconds = aNumber;
-    self.dateInSeconds = [NSDate dateWithTimeIntervalSinceReferenceDate:self.numberOfSeconds];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:0];
+    [comps setMonth:0];
+    [comps setYear:0];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *date = [gregorian dateFromComponents:comps];
+
+    self.dateInSeconds = [NSDate dateWithTimeInterval:self.numberOfSeconds sinceDate:date];
 }
 
 @end
