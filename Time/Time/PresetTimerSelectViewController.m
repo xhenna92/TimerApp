@@ -9,17 +9,34 @@
 #import "PresetTimerSelectViewController.h"
 #import "CountdownObject.h"
 #import "TimerModel.h"
+#import "Colours.h"
+
 
 
 @interface PresetTimerSelectViewController ()
 @property(nonatomic) TimerModel *data;
+@property(nonatomic) NSArray *colorArray;
+@property (weak, nonatomic) IBOutlet UIView *block1;
+@property (weak, nonatomic) IBOutlet UIView *block2;
+@property (weak, nonatomic) IBOutlet UIView *block3;
+@property (weak, nonatomic) IBOutlet UIView *block4;
+
 @end
 
 @implementation PresetTimerSelectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIColor *color = [UIColor babyBlueColor];
+    self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     self.data = [TimerModel sharedInstance];
+    
+    self.block1.backgroundColor = [self.colorArray objectAtIndex:0];
+    self.block2.backgroundColor = [self.colorArray objectAtIndex:1];
+    self.block3.backgroundColor = [self.colorArray objectAtIndex:2];
+    self.block4.backgroundColor = [self.colorArray objectAtIndex:3];
+    
+    
     // Do any additional setup after loading the view.
 }
 - (IBAction)pizzaTouched:(UIButton *)sender {
@@ -43,7 +60,7 @@
 - (IBAction)Countdown4:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Home" and:6000];
+    [CDobject initializeWith:@"Bed" and:6000];
     [self.data.countdowns addObject:CDobject];
 }
 

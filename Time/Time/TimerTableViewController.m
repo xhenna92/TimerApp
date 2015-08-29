@@ -11,16 +11,22 @@
 #import "CountdownObject.h"
 #import "PresetTimerSelectViewController.h"
 #import "TimerModel.h"
+#import "Colours.h"
 
 @interface TimerTableViewController ()
     @property (nonatomic) TimerModel * data;
+    @property (nonatomic) NSArray *colorArray;
+    @property (nonatomic) NSInteger currIndexColor;
 @end
 
 @implementation TimerTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.backgroundColor = [UIColor darkGrayColor];
+    self.currIndexColor = 0;
+    UIColor *color = [UIColor babyBlueColor];
+    self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     self.navigationItem.title = @"Timer";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presetTimerPicker)];
     //[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)] autorelease];
@@ -91,6 +97,20 @@
     CountdownObject *object = [self.data.countdowns objectAtIndex:indexPath.row];
     
     cell.textLabel.text = object.name;
+    NSInteger rndValue = 0 + arc4random() % (3 - 0);
+    if (self.currIndexColor == rndValue) {
+        if (rndValue==0) {
+            rndValue ++;
+        }
+        else if(rndValue ==3){
+            rndValue--;
+        }
+        else{
+            rndValue++;
+        }
+    }
+    self.currIndexColor = rndValue;
+    cell.backgroundColor = [self.colorArray objectAtIndex:rndValue];
     
     return cell;
 }

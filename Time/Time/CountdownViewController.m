@@ -8,6 +8,8 @@
 
 #import "CountdownViewController.h"
 #import "CountdownObject.h"
+#import "Colours.h"
+
 @interface CountdownViewController () {
     
     int afterRemainder;
@@ -46,16 +48,26 @@
     
     [super viewDidLoad];
     self.currIndexColor = 0;
-    self.colorArray = [[NSArray alloc] initWithObjects:[UIColor redColor],[UIColor blueColor],[UIColor greenColor],nil];
+    
+    UIColor *color = [UIColor babyBlueColor];
+    
+    self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     self.navigationItem.title = @"Countdown Timer";
     
     self.CountdownPickerView.datePickerMode = UIDatePickerModeCountDownTimer;
 
     self.isStart = YES;
     self.isResumed = YES;
+    self.CountdownPickerView.backgroundColor = [UIColor snowColor];
+    
     [self.CountdownPickerView setDate:self.countdownInfo.dateInSeconds];
     self.CountdownTimerLabel.hidden = YES;
     self.CountdownPickerView.hidden = NO;
+    self.CountdownPauseButton.alpha = 0.5;
+
+
+
+
 }
     
 - (void) updateCountDown {
@@ -90,12 +102,14 @@
     }
     self.currIndexColor = rndValue;
     UIColor *color = [self.colorArray objectAtIndex:rndValue];
-    self.backgroundView.backgroundColor = color;
+    self.CountdownTimerLabel.backgroundColor = color;
 }
 
 
 //start tapped and stop tapped
 - (IBAction)CountdownStartButtonTapped:(id)sender {
+    
+    
     if (self.isStart) {
         countDownInterval = (NSTimeInterval)_CountdownPickerView.countDownDuration;
         remainder = countDownInterval;
@@ -103,8 +117,8 @@
         
         
         //change the text in start button to cancel and enable the pause button
-        [self.CountdownStartButton setTitle:@"Cancel" forState:UIControlStateNormal];
-        [self.CountdownStartButton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+        [self.CountdownStartButton setImage: [UIImage imageNamed:@"stopButton"] forState:UIControlStateNormal];
+        self.CountdownPauseButton.alpha = 1;
         self.CountdownPauseButton.enabled = YES;
         
         //change the value of the bool isStart bc we're at stop now
@@ -124,13 +138,13 @@
     }
     
     else {
-        
-        [self.CountdownStartButton setTitle:@"Start" forState:UIControlStateNormal];
-        [self.CountdownStartButton setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
-        
+        [self.CountdownStartButton setImage: [UIImage imageNamed:@"greenButton"] forState:UIControlStateNormal];
+
+        [self.CountdownPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
         [self.CountdownPickerView setHidden: NO];
         [self.CountdownTimerLabel setHidden: YES];
         self.CountdownPauseButton.enabled = NO;
+        self.CountdownPauseButton.alpha = 0.5;
         [self.timer invalidate];
         
         self.isStart = YES;

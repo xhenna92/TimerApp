@@ -8,6 +8,8 @@
 
 #import "StopwatchViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Colours.h"
+
 
 @interface StopwatchViewController ()
 
@@ -27,6 +29,9 @@
 @property (strong, nonatomic) NSTimer *lapTimer;
 @property int lapMilliElapsed;
 
+@property (nonatomic) NSArray *colorArray;
+@property (nonatomic) NSInteger currIndexColor;
+
 
 
 @end
@@ -35,24 +40,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.stopWatchTableView.backgroundColor = [UIColor darkGrayColor];
     
+    self.currIndexColor = 0;
+    UIColor *color = [UIColor babyBlueColor];
+    self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     
     self.navigationItem.title = @"Stopwatch";
     
     self.initialStart = YES;
     self.isLapThere = YES;
     self.data = [[NSMutableArray alloc]init];
-    
-    [self.startButton setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+
     self.lapButton.alpha = 0.5;
-    self.startButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
-    self.lapButton.layer.cornerRadius = self.lapButton.bounds.size.width/2;
-    [[self.lapButton layer] setBorderWidth:2.0f];
-    [[self.lapButton layer] setBorderColor: [UIColor blackColor].CGColor];
-    [[self.startButton layer] setBorderWidth:2.0f];
-    [[self.startButton layer] setBorderColor: [UIColor blackColor].CGColor];
-    
-    
     self.stopWatchTableView.delegate = self;
     self.stopWatchTableView.dataSource = self;
     
@@ -74,8 +74,7 @@
         self.lapMilliElapsed = 0;
     }
     else{
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-        [self.startButton setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+        [self.startButton setImage: [UIImage imageNamed:@"greenButton"] forState:UIControlStateNormal];
         self.lapButton.enabled =NO;
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         self.initialStart = YES;
@@ -134,8 +133,7 @@
     if(self.initialStart){
         self.initialStart = NO;
         self.start = NO;
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-        [self.startButton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+        [self.startButton setImage: [UIImage imageNamed:@"stopButton"] forState:UIControlStateNormal];
         self.lapButton.enabled = YES;
         self.lapButton.alpha = 1.0;
         self.isLapThere = YES;
@@ -155,8 +153,7 @@
     else if(!self.start){
         self.start = YES;
         
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-        [self.startButton setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+        [self.startButton setImage: [UIImage imageNamed:@"greenButton"] forState:UIControlStateNormal];
         [self.lapButton setTitle:@"Reset" forState:UIControlStateNormal];
         self.isLapThere = NO;
         
@@ -167,8 +164,7 @@
     else{
         self.start = NO;
         
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-        [self.startButton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+        [self.startButton setImage: [UIImage imageNamed:@"stopButton"] forState:UIControlStateNormal];
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         self.isLapThere = YES;
         
@@ -204,7 +200,20 @@
     
     NSInteger index = indexPath.row+1;
     NSString * cellText = [NSString stringWithFormat: @"Lap %ld \t \t", (long)index];
-    
+    NSInteger rndValue = 0 + arc4random() % (3 - 0);
+    if (self.currIndexColor == rndValue) {
+        if (rndValue==0) {
+            rndValue ++;
+        }
+        else if(rndValue ==3){
+            rndValue--;
+        }
+        else{
+            rndValue++;
+        }
+    }
+    self.currIndexColor = rndValue;
+    cell.backgroundColor = [self.colorArray objectAtIndex:rndValue];
     cell.textLabel.text = [cellText stringByAppendingString:[self.data objectAtIndex:indexPath.row]];
     
     return cell;
