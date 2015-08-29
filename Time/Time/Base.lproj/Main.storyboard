@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -117,6 +117,7 @@
                         <inset key="imageInsets" minX="1.5" minY="1.5" maxX="1.5" maxY="1.5"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="backgroundLap" destination="Mdv-ef-OIX" id="e9k-Vq-I3x"/>
                         <outlet property="lapButton" destination="A7V-yR-Pma" id="IYV-Nq-XcL"/>
                         <outlet property="lapLabel" destination="Ty5-UJ-dUi" id="gHZ-fa-scJ"/>
                         <outlet property="startButton" destination="Qa8-ec-nbt" id="IeC-8T-skk"/>
@@ -334,6 +335,58 @@
             </objects>
             <point key="canvasLocation" x="1726" y="42"/>
         </scene>
+        <!--Event Countdown View Controller-->
+        <scene sceneID="apm-kf-So0">
+            <objects>
+                <viewController id="qnK-Zd-HQQ" customClass="EventCountdownViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Szb-r5-JnB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZIX-Cu-Rel"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RfX-Ko-cE8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonbg" translatesAutoresizingMaskIntoConstraints="NO" id="APt-0P-K7l">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqb-bV-c4i">
+                                <rect key="frame" x="16" y="64" width="568" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzy-sC-IVz">
+                                        <rect key="frame" x="197" y="69" width="73" height="64"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Zzy-sC-IVz" secondAttribute="centerY" id="2WV-4o-nQ5"/>
+                                    <constraint firstAttribute="height" constant="200" id="ijg-Ls-iQq"/>
+                                    <constraint firstAttribute="centerX" secondItem="Zzy-sC-IVz" secondAttribute="centerX" id="ucx-8T-X2a"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cqb-bV-c4i" firstAttribute="leading" secondItem="RfX-Ko-cE8" secondAttribute="leadingMargin" id="1US-Ft-TuG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="APt-0P-K7l" secondAttribute="trailing" constant="-16" id="3BU-yF-odC"/>
+                            <constraint firstItem="cqb-bV-c4i" firstAttribute="top" secondItem="Szb-r5-JnB" secondAttribute="bottom" id="T4M-Y7-QZG"/>
+                            <constraint firstItem="APt-0P-K7l" firstAttribute="leading" secondItem="RfX-Ko-cE8" secondAttribute="leadingMargin" constant="-16" id="qN6-N9-ebb"/>
+                            <constraint firstItem="APt-0P-K7l" firstAttribute="top" secondItem="Szb-r5-JnB" secondAttribute="bottom" id="uUw-00-vVo"/>
+                            <constraint firstItem="ZIX-Cu-Rel" firstAttribute="top" secondItem="APt-0P-K7l" secondAttribute="bottom" id="vpY-Ie-to2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cqb-bV-c4i" secondAttribute="trailing" id="y9O-uP-avw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CDLabel" destination="Zzy-sC-IVz" id="f7e-CQ-xS0"/>
+                        <outlet property="labelHolder" destination="cqb-bV-c4i" id="PQb-Op-jdJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pxf-zS-PLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="724"/>
+        </scene>
         <!--Countdown View Controller-->
         <scene sceneID="cJu-1R-W4B">
             <objects>
@@ -501,24 +554,53 @@
             </objects>
             <point key="canvasLocation" x="906" y="42"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="cf9-7R-ci5">
+        <!--Events-->
+        <scene sceneID="lwm-m4-DX3">
             <objects>
-                <viewController id="8ii-NH-MgV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rAz-oi-ykW"/>
-                        <viewControllerLayoutGuide type="bottom" id="MFC-IM-ohc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RBu-j5-Jic">
+                <navigationController id="z9l-ck-Uab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="calendar" id="zE9-8j-sPX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4j-pP-eMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C9d-DV-vyJ" kind="relationship" relationship="rootViewController" id="PBj-3t-M7V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yDt-jm-L6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="724"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="xTZ-ex-mna">
+            <objects>
+                <tableViewController id="C9d-DV-vyJ" customClass="EventsCountdownTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UBR-Se-AQ4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="calendar" id="VwR-bW-taD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WoN-GP-HVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCellIdentifier" id="0Um-6x-BGM">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Um-6x-BGM" id="kwg-0e-U2H">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qnK-Zd-HQQ" kind="show" id="GtY-Tz-Nw4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C9d-DV-vyJ" id="y0h-XI-wu7"/>
+                            <outlet property="delegate" destination="C9d-DV-vyJ" id="05L-St-N6j"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Events" image="calendar" id="0hd-Un-rDK"/>
+                    <navigationItem key="navigationItem" id="Ji0-gt-ph3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRt-RY-rwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="740"/>
+            <point key="canvasLocation" x="1714" y="718"/>
         </scene>
         <!--Time Tab Bar View Controller-->
         <scene sceneID="RSD-FQ-C5W">
@@ -533,7 +615,7 @@
                     <connections>
                         <segue destination="CeS-7F-7wO" kind="relationship" relationship="viewControllers" id="n90-Dc-fdP"/>
                         <segue destination="xrY-6d-HBj" kind="relationship" relationship="viewControllers" id="FO6-Tj-sPq"/>
-                        <segue destination="8ii-NH-MgV" kind="relationship" relationship="viewControllers" id="Ipo-n9-X00"/>
+                        <segue destination="z9l-ck-Uab" kind="relationship" relationship="viewControllers" id="JQZ-gO-XvV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17g-cV-FPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,6 +624,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="buttonbg" width="236" height="246"/>
         <image name="calendar" width="30" height="30"/>
         <image name="clock" width="30" height="30"/>
         <image name="greenButton" width="300" height="300"/>

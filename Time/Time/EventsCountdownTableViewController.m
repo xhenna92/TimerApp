@@ -1,43 +1,38 @@
 //
-//  TimerTableViewController.m
+//  EventsCountdownTableViewController.m
 //  Time
 //
-//  Created by Henna on 8/23/15.
+//  Created by Henna on 8/29/15.
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "TimerTableViewController.h"
-#import "CountdownViewController.h"
-#import "CountdownObject.h"
-#import "PresetTimerSelectViewController.h"
-#import "TimerModel.h"
+#import "EventsCountdownTableViewController.h"
+#import "eventObject.h"
+#import "EventCountdownViewController.h"
 #import "Colours.h"
 
-@interface TimerTableViewController ()
-    @property (nonatomic) TimerModel * data;
-    @property (nonatomic) NSArray *colorArray;
-    @property (nonatomic) NSInteger currIndexColor;
+
+@interface EventsCountdownTableViewController ()
+
+@property (nonatomic) NSMutableArray* eventObjects;
+@property (nonatomic) NSArray *colorArray;
+@property (nonatomic) NSInteger currIndexColor;
+
 @end
 
-@implementation TimerTableViewController
+@implementation EventsCountdownTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor black75PercentColor];
-   
     self.currIndexColor = 0;
     UIColor *color = [UIColor babyBlueColor];
     self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
-    self.navigationItem.title = @"Timer";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presetTimerPicker)];
-    //[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)] autorelease];
-    
-    self.data = [TimerModel sharedInstance];
-    [self.data initializeModel];
-    
-    
-
-    
+    self.eventObjects = [[NSMutableArray alloc]init];
+    eventObject *event = [[eventObject alloc]init];
+    event.name = @"Access Code Graduation";
+    [event setDateWithMonth:12 andDay:12 andYear:2015];
+    [self.eventObjects addObject:event];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,60 +41,26 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
-}
-
--(void) presetTimerPicker{
-    // create a reference to Main.storyboard
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    // create a new instance of UIViewController from our storyboard
-    PresetTimerSelectViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"presetTimerPicker"];
-    
-    
-    // set any properties on viewController
-    //viewController.planet = [self.planets objectAtIndex:0];
-    
-    // tell the UINavigationController to push the new view controller on to the stack
-    [self.navigationController presentModalViewController:viewController animated:YES];
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[CountdownViewController class]]){
-    NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
-    
-    CountdownObject * selected = [self.data.countdowns objectAtIndex:indexPath.row];
-    CountdownViewController * destination = segue.destinationViewController;
-    destination.countdownInfo = selected;
-    }
-}
-
-
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.data.countdowns.count;
+    return self.eventObjects.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimerIndexCellIdentifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCellIdentifier" forIndexPath:indexPath];
     
-    CountdownObject *object = [self.data.countdowns objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = object.name;
+    cell.textLabel.text = [[self.eventObjects objectAtIndex:indexPath.row] name];
     NSInteger rndValue = 0 + arc4random() % (3 - 0);
     if (self.currIndexColor == rndValue) {
         if (rndValue==0) {
@@ -114,9 +75,14 @@
     }
     self.currIndexColor = rndValue;
     cell.backgroundColor = [self.colorArray objectAtIndex:rndValue];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+    eventObject * selected = [self.eventObjects objectAtIndex:indexPath.row];
+    EventCountdownViewController * destination = segue.destinationViewController;
+    destination.obj = selected;
 }
 
 

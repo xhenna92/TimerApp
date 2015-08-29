@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSTimer *stopWatchTimer;
 @property (strong, nonatomic) NSTimer *lapTimer;
 @property int lapMilliElapsed;
+@property (strong, nonatomic) IBOutlet UIView *backgroundLap;
 
 @property (nonatomic) NSArray *colorArray;
 @property (nonatomic) NSInteger currIndexColor;
@@ -40,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stopWatchTableView.backgroundColor = [UIColor darkGrayColor];
+    self.stopWatchTableView.backgroundColor = [UIColor black75PercentColor];
+    self.backgroundLap.backgroundColor = [UIColor black75PercentColor];
     
     self.currIndexColor = 0;
     UIColor *color = [UIColor babyBlueColor];

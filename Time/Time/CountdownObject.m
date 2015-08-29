@@ -18,7 +18,7 @@
     [comps setMonth:0];
     [comps setYear:0];
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate *date = [gregorian dateFromComponents:comps];
 
     self.dateInSeconds = [NSDate dateWithTimeInterval:self.numberOfSeconds sinceDate:date];
