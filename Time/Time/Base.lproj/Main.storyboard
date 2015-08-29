@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxv-wC-WsW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -59,8 +59,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zNb-9e-Vmo">
-                                <rect key="frame" x="16" y="478" width="568" height="122"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zNb-9e-Vmo">
+                                <rect key="frame" x="16" y="310" width="568" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-yR-Pma">
@@ -78,10 +78,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-ec-nbt">
-                                <rect key="frame" x="66" y="170" width="100" height="100"/>
+                                <rect key="frame" x="66" y="180" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1vQ-bH-7DL"/>
-                                    <constraint firstAttribute="width" constant="100" id="b5f-eF-KFU"/>
+                                    <constraint firstAttribute="height" constant="80" id="1vQ-bH-7DL"/>
+                                    <constraint firstAttribute="width" constant="80" id="b5f-eF-KFU"/>
                                 </constraints>
                                 <state key="normal" image="greenButton">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,8 +99,8 @@
                             <constraint firstItem="Qa8-ec-nbt" firstAttribute="leading" secondItem="Mdv-ef-OIX" secondAttribute="leadingMargin" constant="50" id="Veb-FR-82L"/>
                             <constraint firstAttribute="centerX" secondItem="oku-FF-A21" secondAttribute="centerX" id="W3Z-1k-nZ3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zNb-9e-Vmo" secondAttribute="trailing" id="YBF-XI-K4p"/>
-                            <constraint firstItem="zNb-9e-Vmo" firstAttribute="top" secondItem="Qa8-ec-nbt" secondAttribute="bottom" constant="8" id="Z4p-Qy-uqB"/>
-                            <constraint firstItem="Qa8-ec-nbt" firstAttribute="top" secondItem="oku-FF-A21" secondAttribute="bottom" id="csg-MF-lQO"/>
+                            <constraint firstItem="zNb-9e-Vmo" firstAttribute="top" secondItem="Qa8-ec-nbt" secondAttribute="bottom" constant="50" id="Z4p-Qy-uqB"/>
+                            <constraint firstItem="Qa8-ec-nbt" firstAttribute="top" secondItem="oku-FF-A21" secondAttribute="bottom" constant="10" id="csg-MF-lQO"/>
                             <constraint firstItem="zNb-9e-Vmo" firstAttribute="leading" secondItem="Mdv-ef-OIX" secondAttribute="leadingMargin" id="dLi-vS-blc"/>
                             <constraint firstItem="oku-FF-A21" firstAttribute="top" secondItem="gZS-KV-pcQ" secondAttribute="bottom" id="lws-8Q-MF1"/>
                             <constraint firstItem="zNb-9e-Vmo" firstAttribute="leading" secondItem="Mdv-ef-OIX" secondAttribute="leadingMargin" id="rXk-8i-tLm"/>
@@ -113,7 +113,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stopwatch" id="ShO-Ox-HPk"/>
+                    <tabBarItem key="tabBarItem" title="Stopwatch" image="stopper" id="ShO-Ox-HPk">
+                        <inset key="imageInsets" minX="1.5" minY="1.5" maxX="1.5" maxY="1.5"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="lapButton" destination="A7V-yR-Pma" id="IYV-Nq-XcL"/>
                         <outlet property="lapLabel" destination="Ty5-UJ-dUi" id="gHZ-fa-scJ"/>
@@ -124,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDu-Hv-jlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-14"/>
+            <point key="canvasLocation" x="906" y="-658"/>
         </scene>
         <!--Preset Timer Select View Controller-->
         <scene sceneID="cmA-21-IGT">
@@ -147,7 +149,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RO-vH-oPN">
                                                 <rect key="frame" x="-1" y="0.0" width="301" height="300"/>
                                                 <state key="normal" title="Pizza">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -169,7 +171,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-za-xPX">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                 <state key="normal" title="Party">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -216,7 +218,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klO-HB-ap6">
                                                 <rect key="frame" x="-1" y="0.0" width="301" height="300"/>
                                                 <state key="normal" title="Excercise">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -238,7 +240,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-AN-auC">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                 <state key="normal" title="Bed">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -292,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tF2-Bo-Avr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1690" y="-48"/>
+            <point key="canvasLocation" x="1714" y="-658"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="oTt-S3-Mrr">
@@ -311,7 +313,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vz1-6z-Uyb">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -330,7 +332,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szV-BI-6eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736" y="682"/>
+            <point key="canvasLocation" x="1726" y="42"/>
         </scene>
         <!--Countdown View Controller-->
         <scene sceneID="cJu-1R-W4B">
@@ -344,8 +346,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zO-eg-77Y">
-                                <rect key="frame" x="0.0" y="64" width="600" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zO-eg-77Y">
+                                <rect key="frame" x="0.0" y="64" width="600" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="I1a-H9-kdt"/>
                                 </constraints>
@@ -388,7 +390,7 @@
                                                     <constraint firstAttribute="height" constant="100" id="nNz-dh-sAW"/>
                                                 </constraints>
                                                 <state key="normal" title="Pause" backgroundImage="pausebtn">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="captureLapTime:" destination="CeS-7F-7wO" eventType="touchUpInside" id="hYg-3R-nO6"/>
@@ -396,10 +398,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tec-Bm-b2M">
-                                                <rect key="frame" x="10" y="50" width="100" height="100"/>
+                                                <rect key="frame" x="10" y="55" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="0UQ-jb-dzz"/>
-                                                    <constraint firstAttribute="width" constant="100" id="w22-u4-Bhj"/>
+                                                    <constraint firstAttribute="height" constant="80" id="0UQ-jb-dzz"/>
+                                                    <constraint firstAttribute="width" constant="80" id="w22-u4-Bhj"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="greenButton">
@@ -415,7 +417,7 @@
                                             <constraint firstAttribute="trailing" secondItem="WM3-l8-G9X" secondAttribute="trailing" constant="10" id="OIv-2g-fe5"/>
                                             <constraint firstItem="tec-Bm-b2M" firstAttribute="leading" secondItem="anQ-ng-ltr" secondAttribute="leading" constant="10" id="UyR-7P-adO"/>
                                             <constraint firstAttribute="centerY" secondItem="WM3-l8-G9X" secondAttribute="centerY" id="foj-Uy-yoR"/>
-                                            <constraint firstAttribute="centerY" secondItem="tec-Bm-b2M" secondAttribute="centerY" id="xFZ-3g-osc"/>
+                                            <constraint firstAttribute="centerY" secondItem="tec-Bm-b2M" secondAttribute="centerY" constant="5" id="xFZ-3g-osc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -478,13 +480,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-74-21h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="682"/>
+            <point key="canvasLocation" x="2468" y="42"/>
         </scene>
         <!--Timer-->
         <scene sceneID="BXT-p7-z0h">
             <objects>
                 <navigationController id="xrY-6d-HBj" customClass="TimerNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timer" id="nWf-Lu-zA5"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="clock" id="nWf-Lu-zA5">
+                        <inset key="imageInsets" minX="1.5" minY="1.5" maxX="1.5" maxY="1.5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rrC-KU-UUQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -495,7 +499,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdS-SJ-ciR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="682"/>
+            <point key="canvasLocation" x="906" y="42"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="cf9-7R-ci5">
+            <objects>
+                <viewController id="8ii-NH-MgV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rAz-oi-ykW"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFC-IM-ohc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RBu-j5-Jic">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="calendar" id="VwR-bW-taD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WoN-GP-HVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="740"/>
         </scene>
         <!--Time Tab Bar View Controller-->
         <scene sceneID="RSD-FQ-C5W">
@@ -510,6 +533,7 @@
                     <connections>
                         <segue destination="CeS-7F-7wO" kind="relationship" relationship="viewControllers" id="n90-Dc-fdP"/>
                         <segue destination="xrY-6d-HBj" kind="relationship" relationship="viewControllers" id="FO6-Tj-sPq"/>
+                        <segue destination="8ii-NH-MgV" kind="relationship" relationship="viewControllers" id="Ipo-n9-X00"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17g-cV-FPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -518,7 +542,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="30" height="30"/>
+        <image name="clock" width="30" height="30"/>
         <image name="greenButton" width="300" height="300"/>
         <image name="pausebtn" width="256" height="256"/>
+        <image name="stopper" width="30" height="30"/>
     </resources>
 </document>

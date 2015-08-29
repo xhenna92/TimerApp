@@ -214,7 +214,9 @@
     }
     self.currIndexColor = rndValue;
     cell.backgroundColor = [self.colorArray objectAtIndex:rndValue];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = [cellText stringByAppendingString:[self.data objectAtIndex:indexPath.row]];
+    
     
     return cell;
 }

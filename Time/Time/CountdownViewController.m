@@ -58,9 +58,12 @@
 
     self.isStart = YES;
     self.isResumed = YES;
-    self.CountdownPickerView.backgroundColor = [UIColor snowColor];
+    self.CountdownPickerView.backgroundColor = [UIColor darkGrayColor];
+    [self.CountdownPickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
+    
     
     [self.CountdownPickerView setDate:self.countdownInfo.dateInSeconds];
+   
     self.CountdownTimerLabel.hidden = YES;
     self.CountdownPickerView.hidden = NO;
     self.CountdownPauseButton.alpha = 0.5;
@@ -84,6 +87,7 @@
     NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
     
     self.CountdownTimerLabel.text = timeDisplay;
+    self.CountdownTimerLabel.textColor = [UIColor whiteColor];
 }
 
 -(void) changeBGColor{
@@ -104,6 +108,7 @@
     UIColor *color = [self.colorArray objectAtIndex:rndValue];
     self.CountdownTimerLabel.backgroundColor = color;
 }
+
 
 
 //start tapped and stop tapped

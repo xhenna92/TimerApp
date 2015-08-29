@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor darkGrayColor];
+   
     self.currIndexColor = 0;
     UIColor *color = [UIColor babyBlueColor];
     self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
@@ -33,6 +34,8 @@
     
     self.data = [TimerModel sharedInstance];
     [self.data initializeModel];
+    
+    
 
     
     
@@ -111,6 +114,7 @@
     }
     self.currIndexColor = rndValue;
     cell.backgroundColor = [self.colorArray objectAtIndex:rndValue];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }
