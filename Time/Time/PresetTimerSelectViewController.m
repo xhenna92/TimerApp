@@ -15,11 +15,10 @@
 
 @interface PresetTimerSelectViewController ()
 @property(nonatomic) TimerModel *data;
-@property(nonatomic) NSArray *colorArray;
-@property (weak, nonatomic) IBOutlet UIView *block1;
-@property (weak, nonatomic) IBOutlet UIView *block2;
-@property (weak, nonatomic) IBOutlet UIView *block3;
-@property (weak, nonatomic) IBOutlet UIView *block4;
+@property (weak, nonatomic) IBOutlet UITextField *nameLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *timerDatePicker;
+
+@property (strong, nonatomic) IBOutlet UIView *bgView;
 
 @end
 
@@ -27,41 +26,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIColor *color = [UIColor babyBlueColor];
-    self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     self.data = [TimerModel sharedInstance];
+    self.timerDatePicker.datePickerMode = UIDatePickerModeCountDownTimer;
     
-    self.block1.backgroundColor = [self.colorArray objectAtIndex:0];
-    self.block2.backgroundColor = [self.colorArray objectAtIndex:1];
-    self.block3.backgroundColor = [self.colorArray objectAtIndex:2];
-    self.block4.backgroundColor = [self.colorArray objectAtIndex:3];
-    
-    
+    self.bgView.backgroundColor = [UIColor black75PercentColor];
+    [self.timerDatePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
     // Do any additional setup after loading the view.
 }
-- (IBAction)pizzaTouched:(UIButton *)sender {
+- (IBAction)createTapped:(UIButton *)sender {
+    CountdownObject * cdObject = [[CountdownObject alloc]init];
+    
+    NSTimeInterval countDownInterval = (NSTimeInterval)self.timerDatePicker.countDownDuration;
+    [cdObject initializeWith:self.nameLabel.text and:countDownInterval];
+    
+    [self.data.countdowns addObject:cdObject];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
-    CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Pizza" and:180];
-    [self.data.countdowns addObject:CDobject];
-}
-- (IBAction)partyTouched:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Party" and:600];
-    [self.data.countdowns addObject:CDobject];
-}
-- (IBAction)Countdown3:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Exercise" and:400];
-    [self.data.countdowns addObject:CDobject];
-}
-- (IBAction)Countdown4:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Bed" and:6000];
-    [self.data.countdowns addObject:CDobject];
+
 }
 
 - (void)didReceiveMemoryWarning {

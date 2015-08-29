@@ -50,6 +50,7 @@
     self.currIndexColor = 0;
     
     UIColor *color = [UIColor babyBlueColor];
+    self.backgroundView.backgroundColor = [UIColor black75PercentColor];
     
     self.colorArray = [color colorSchemeOfType:ColorSchemeAnalagous];
     self.navigationItem.title = @"Countdown Timer";
@@ -58,7 +59,7 @@
 
     self.isStart = YES;
     self.isResumed = YES;
-    self.CountdownPickerView.backgroundColor = [UIColor darkGrayColor];
+    self.CountdownPickerView.backgroundColor = [UIColor black75PercentColor];
     [self.CountdownPickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
     
     

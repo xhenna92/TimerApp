@@ -25,7 +25,7 @@
     self.countdowns = [[NSMutableArray alloc] init];
     
     CountdownObject * CDobject = [[CountdownObject alloc]init];
-    [CDobject initializeWith:@"Custom Timer" and:120];
+    [CDobject initializeWith:@"Custom Timer" and:60];
     [self.countdowns addObject:CDobject];
     
     CountdownObject * CDobject2 = [[CountdownObject alloc]init];
@@ -33,8 +33,22 @@
     [self.countdowns addObject:CDobject2];
     
     CountdownObject * CDobject3 = [[CountdownObject alloc]init];
-    [CDobject3 initializeWith:@"Hunned Seconds" and:100];
+    [CDobject3 initializeWith:@"Pizza" and:180];
     [self.countdowns addObject:CDobject3];
+
+    CountdownObject * CDobject4 = [[CountdownObject alloc]init];
+    [CDobject4 initializeWith:@"Party" and:600];
+    [self.countdowns addObject:CDobject4];
+    
+    CountdownObject * CDobject5 = [[CountdownObject alloc]init];
+    [CDobject5 initializeWith:@"Exercise" and:400];
+    [self.countdowns addObject:CDobject5];
+    
+    CountdownObject * CDobject6 = [[CountdownObject alloc]init];
+    [CDobject6 initializeWith:@"Bed" and:6000];
+    [self.countdowns addObject:CDobject6];
+
+
     
 }
 

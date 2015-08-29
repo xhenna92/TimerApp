@@ -53,8 +53,14 @@
     self.initialStart = YES;
     self.isLapThere = YES;
     self.data = [[NSMutableArray alloc]init];
-
+    
+    self.lapButton.backgroundColor = [UIColor babyBlueColor];
+    self.lapButton.layer.cornerRadius = self.lapButton.bounds.size.width/2;
     self.lapButton.alpha = 0.5;
+    
+    self.startButton.backgroundColor = [UIColor emeraldColor];
+    self.startButton.layer.cornerRadius = self.lapButton.bounds.size.width/2;
+    
     self.stopWatchTableView.delegate = self;
     self.stopWatchTableView.dataSource = self;
     
@@ -76,7 +82,7 @@
         self.lapMilliElapsed = 0;
     }
     else{
-        [self.startButton setImage: [UIImage imageNamed:@"greenButton"] forState:UIControlStateNormal];
+        self.startButton.backgroundColor = [UIColor emeraldColor];
         self.lapButton.enabled =NO;
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         self.initialStart = YES;
@@ -135,7 +141,7 @@
     if(self.initialStart){
         self.initialStart = NO;
         self.start = NO;
-        [self.startButton setImage: [UIImage imageNamed:@"stopButton"] forState:UIControlStateNormal];
+        self.startButton.backgroundColor = [UIColor brickRedColor];
         self.lapButton.enabled = YES;
         self.lapButton.alpha = 1.0;
         self.isLapThere = YES;
@@ -155,7 +161,7 @@
     else if(!self.start){
         self.start = YES;
         
-        [self.startButton setImage: [UIImage imageNamed:@"greenButton"] forState:UIControlStateNormal];
+        self.startButton.backgroundColor = [UIColor emeraldColor];
         [self.lapButton setTitle:@"Reset" forState:UIControlStateNormal];
         self.isLapThere = NO;
         
@@ -166,7 +172,7 @@
     else{
         self.start = NO;
         
-        [self.startButton setImage: [UIImage imageNamed:@"stopButton"] forState:UIControlStateNormal];
+        self.startButton.backgroundColor = [UIColor brickRedColor];
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         self.isLapThere = YES;
         
