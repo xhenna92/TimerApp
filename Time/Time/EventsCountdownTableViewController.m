@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Events";
     self.tableView.backgroundColor = [UIColor black75PercentColor];
     self.currIndexColor = 0;
     UIColor *color = [UIColor babyBlueColor];

@@ -11,6 +11,7 @@
 		38239BDA1B92338E00E32C9C /* EventsCountdownTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239BD91B92338E00E32C9C /* EventsCountdownTableViewController.m */; };
 		38239BDD1B9234DE00E32C9C /* EventCountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239BDC1B9234DE00E32C9C /* EventCountdownViewController.m */; };
 		38239BE01B92360800E32C9C /* eventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239BDF1B92360800E32C9C /* eventObject.m */; };
+		38239BE31B9380F800E32C9C /* circleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38239BE21B9380F800E32C9C /* circleView.m */; };
 		385FE2D71B88CEC200212AD5 /* TimeTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */; };
 		385FE2DA1B88D05800212AD5 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2D91B88D05800212AD5 /* StopwatchViewController.m */; };
 		385FE2E31B8A266800212AD5 /* TimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FE2E21B8A266800212AD5 /* TimerTableViewController.m */; };
@@ -46,6 +47,8 @@
 		38239BDC1B9234DE00E32C9C /* EventCountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCountdownViewController.m; sourceTree = "<group>"; };
 		38239BDE1B92360800E32C9C /* eventObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventObject.h; sourceTree = "<group>"; };
 		38239BDF1B92360800E32C9C /* eventObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventObject.m; sourceTree = "<group>"; };
+		38239BE11B9380F800E32C9C /* circleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = circleView.h; sourceTree = "<group>"; };
+		38239BE21B9380F800E32C9C /* circleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = circleView.m; sourceTree = "<group>"; };
 		385FE2D51B88CEC200212AD5 /* TimeTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTabBarViewController.h; sourceTree = "<group>"; };
 		385FE2D61B88CEC200212AD5 /* TimeTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTabBarViewController.m; sourceTree = "<group>"; };
 		385FE2D81B88D05800212AD5 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				A4F876EB1B8A4E8B00824C4A /* CountdownViewController.h */,
 				A4F876EC1B8A4E8B00824C4A /* CountdownViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
+				38239BE11B9380F800E32C9C /* circleView.h */,
+				38239BE21B9380F800E32C9C /* circleView.m */,
 				8D0537681B86687C00588318 /* Images.xcassets */,
 				8D05376A1B86687C00588318 /* LaunchScreen.xib */,
 				8D05375B1B86687B00588318 /* Supporting Files */,
@@ -286,6 +291,7 @@
 				38239BD71B91FDDE00E32C9C /* Colours.m in Sources */,
 				387947191B8FE50E002B86F7 /* TimerModel.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
+				38239BE31B9380F800E32C9C /* circleView.m in Sources */,
 				387947161B8FE112002B86F7 /* PresetTimerSelectViewController.m in Sources */,
 				38239BE01B92360800E32C9C /* eventObject.m in Sources */,
 			);
